@@ -1,0 +1,21 @@
+{
+  "name": "heroku-test",
+  "version": "1.0.0",
+  "description": "CI/CD test with heroku and GH Actions",
+  "main": "src/server.ts",
+  "scripts": {
+    "build": "sass public-src/style.scss > public/style.css & cp public-src/index.html public/",
+    "start": "npx ts-node src/server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.53.0"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.6",
+    "express": "^4.18.1",
+    "ts-node": "^10.9.1"
+  }
+}
