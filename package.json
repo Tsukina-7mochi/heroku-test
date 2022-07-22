@@ -4,8 +4,12 @@
   "description": "CI/CD test with heroku and GH Actions",
   "main": "src/server.ts",
   "scripts": {
-    "build": "sass public-src/style.scss > public/style.css & cp public-src/index.html public/",
-    "start": "npx ts-node src/server.ts"
+    "build": "run-s build:mkdir build:sass build:copy",
+    "build:mkdir": "mkdir -p public",
+    "build:sass": "sass public-src/style.scss > public/style.css",
+    "build:copy": "cp public-src/index.html public/",
+    "start": "npx ts-node src/server.ts",
+    "test": "eslint ./src/"
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.53.0"
   },
   "dependencies": {
